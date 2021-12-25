@@ -59,5 +59,5 @@ var conta2 = new Conta(2343, "Maria", 1234, 3000);
 conta1.sacar(400, "saque");
 conta2.depositar(200, "deposito");
 conta1.transferir(150, conta2);
-console.log(conta1._transacoes);
-console.log(conta2._transacoes);
+//console.log(conta1._transacoes[0].tipo);
+console.log(conta2);

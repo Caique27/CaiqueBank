@@ -6,5 +6,5 @@ export default function Time() {
 
   var time = getData.getHours() + ":" + getData.getMinutes();
 
-  return [day, time];
+  return [String(day), String(time)];
 }
