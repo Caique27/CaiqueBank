@@ -6,6 +6,7 @@ export default class Conta {
     this._nomeCliente = nomeCliente;
     this._senha = senha;
     this._saldo = saldo;
+    this.agencia = "0001";
     this._transacoes = [];
     Conta.listaContas.push(this);
   }

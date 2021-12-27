@@ -1,0 +1,20 @@
+{
+    "contas":[
+        {
+            "_numeroConta": 2343,
+              "_nomeCliente": "Maria",
+              "_senha": 1234,
+              "_saldo": 3350,
+              "agencia": "0001",
+              "_transacoes": [
+                { "valor": 200, "tipo": "Depósito", "dia": "27/12/2021", "hora": "1:35" },
+                {
+                  "valor": 150,
+                  "tipo": "Transferência Recebida",
+                  "dia": "27/12/2021",
+                  "hora": "1:35"
+                }
+              ]
+            }
+    ]
+}
