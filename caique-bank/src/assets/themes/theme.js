@@ -10,8 +10,12 @@ const theme = createMuiTheme({
       main: "rgb(6, 172, 0)",
     },
     third: {
-      main: "#f44336",
+      main: "#07cf00",
+    },
+    fourth: {
+      main: "#f5f5f5",
     },
   },
+  fontFamily: "korataki regular",
 });
 export default theme;

@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import "./Login.css";
 import Image from "../../assets/img/Logo.png";
 import { Tabs, Tab, Box, TabPanel } from "@mui/material";
+import LoginCliente from "../../components/LoginCliente/LoginCliente.jsx";
 
 function Login() {
   const [value, setValue] = useState(1);
-  const menus = [
-    <h1>Componente login cliente</h1>,
-    <h1>componente login gerente</h1>,
-  ];
+  const menus = [<LoginCliente />, <h1>componente login gerente</h1>];
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };

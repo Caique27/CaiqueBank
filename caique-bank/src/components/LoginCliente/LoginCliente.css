@@ -1,0 +1,24 @@
+.LoginCliente-form {
+  margin: 2% 7%;
+}
+.LoginCliente-dados-conta {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1%;
+}
+.LoginCliente-senha {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 3%;
+}
+
+.LoginCliente-ajuda-conta {
+  display: flex;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 4%;
+}
+div#margin {
+  color: white;
+}

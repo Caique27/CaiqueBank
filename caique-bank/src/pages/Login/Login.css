@@ -16,36 +16,36 @@ body {
 .login-box {
   background-color: white;
   width: 90vh;
-  height: 67.5vh;
+
   border-radius: 3%;
   box-shadow: 2px 2px 7px rgb(61, 61, 61);
   margin: auto;
-  margin-top: 1.5%;
+  margin-top: 1.5rem;
   margin-bottom: 4.6%;
   vertical-align: baseline;
 }
 .login-nome {
   font-family: "jetbrains mono";
   color: white;
-  font-size: 14vh;
+  font-size: 5rem;
   font-weight: 600;
   margin-top: 2%;
   text-shadow: 2px 2px 3px #7e7c7c;
+  user-select: none;
 }
 .login-header {
   margin-top: 1.5%;
   display: flex;
   margin-left: 22%;
   width: 90%;
+  user-select: none;
 }
 .login-logo {
   width: 10%;
   height: 12%;
+  user-select: none;
 }
 .login-conteudo {
   width: 100%;
   height: 86%;
-}
-.a {
-  color: rgba(0, 255, 21, 0.664);
 }
