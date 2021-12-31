@@ -24,7 +24,13 @@ function LoginCliente() {
 
   function checarCampo(evento, func) {
     //teste preenchimento
-    func(validacoes.preenchimento(evento.target.value));
+    if (evento.target.id == "Senha") {
+      func(validacoes.preenchimento(evento.target.value));
+    } else {
+      func(validacoes.numero(evento.target.value));
+    }
+
+    // checarNumericos(evento, func);
   }
 
   const handleClickShowPassword = () => {
@@ -40,7 +46,6 @@ function LoginCliente() {
       className="LoginCliente-form"
       onSubmit={(event) => {
         event.preventDefault();
-        console.log("submit");
       }}
     >
       <Typography

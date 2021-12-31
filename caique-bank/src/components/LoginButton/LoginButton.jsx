@@ -8,7 +8,6 @@ function LoginButton(props) {
       className="LoginButton-button"
       onClick={() => {
         props.clicar("loading");
-        console.log(props.status);
       }}
     >
       {props.status == "waiting" ? (

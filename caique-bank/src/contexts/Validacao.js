@@ -3,8 +3,17 @@ const Validacoes = React.createContext({
   numero: checarNumero,
   preenchimento: checarPreenchimento,
 });
-function checarNumero() {
-  return { valido: true, texto: "" };
+function checarNumero(dados) {
+  if (checarPreenchimento(dados).valido) {
+    var isString = isNaN(dados);
+    if (isString) {
+      return { valido: false, texto: "*Deve ser um número" };
+    }
+
+    return { valido: true, texto: "" };
+  } else {
+    return { valido: false, texto: "*Campo obrigatório" };
+  }
 }
 function checarPreenchimento(dados) {
   if (dados == "") {
