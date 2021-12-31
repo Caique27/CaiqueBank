@@ -4,7 +4,6 @@
 .LoginCliente-dados-conta {
   display: flex;
   flex-direction: row;
-  margin-top: 1%;
 }
 .LoginCliente-senha {
   display: flex;

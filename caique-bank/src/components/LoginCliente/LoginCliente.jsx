@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./LoginCliente.css";
 import {
   TextField,
@@ -9,11 +9,24 @@ import {
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import LoginButton from "../LoginButton/LoginButton.jsx";
+import Validacao from "../../contexts/Validacao.js";
 
 function LoginCliente() {
   const [senha, setSenha] = useState("");
   const [mostrarSenha, setMostrarSenha] = useState(false);
   const [buttonStatus, setButtonStatus] = useState("waiting");
+
+  const [errosAgencia, setErrosAgencia] = useState({ valido: true, texto: "" });
+  const [errosConta, setErrosConta] = useState({ valido: true, texto: "" });
+  const [errosSenha, setErrosSenha] = useState({ valido: true, texto: "" });
+
+  const validacoes = useContext(Validacao);
+
+  function checarCampo(evento, func) {
+    //teste preenchimento
+    func(validacoes.preenchimento(evento.target.value));
+  }
+
   const handleClickShowPassword = () => {
     setMostrarSenha(!mostrarSenha);
   };
@@ -42,11 +55,14 @@ function LoginCliente() {
       </Typography>
       <div className="LoginCliente-dados-conta">
         <TextField
-          id="outlined-basic"
+          onBlur={(event) => checarCampo(event, setErrosConta)}
+          id="Conta"
           label="Conta"
+          helperText={errosConta.texto}
           variant="outlined"
           margin="normal"
-          color="third"
+          error={!errosConta.valido}
+          color={errosConta.valido ? "third" : "error"}
           focused
           sx={{ width: "140%" }}
           inputProps={{
@@ -56,11 +72,14 @@ function LoginCliente() {
           }}
         />
         <TextField
-          id="outlined-basic"
+          onBlur={(event) => checarCampo(event, setErrosAgencia)}
+          id="Agencia"
           label="Agência"
+          helperText={errosAgencia.texto}
           variant="outlined"
           margin="normal"
-          color="third"
+          error={!errosAgencia.valido}
+          color={errosAgencia.valido ? "third" : "error"}
           inputProps={{
             style: {
               height: "110%",
@@ -72,16 +91,19 @@ function LoginCliente() {
       </div>
       <div className="LoginCliente-senha">
         <TextField
-          id="outlined-basic"
+          onBlur={(event) => checarCampo(event, setErrosSenha)}
+          id="Senha"
           label="Senha"
+          helperText={errosSenha.texto}
           type={mostrarSenha ? "text" : "password"}
           value={senha}
           onChange={(event) => {
             setSenha(event.target.value);
           }}
           variant="outlined"
-          margin="normal"
-          color="third"
+          margin="none"
+          error={!errosSenha.valido}
+          color={errosSenha.valido ? "third" : "error"}
           focused
           fullWidth
           InputProps={{
