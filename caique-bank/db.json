@@ -16,6 +16,28 @@
                   "hora": "1:35"
                 }
               ]
-            }
+            },
+  
+      {
+            "id":2,
+            "_numeroConta": 3242,
+            "_nomeCliente": "João",
+            "_senha": 4321,
+            "_saldo": 1250,
+            "agencia": "0001",
+            "_transacoes": [
+              { "valor": 200, "tipo": "Depósito", "dia": "27/12/2021", "hora": "1:35" },
+              {
+                "valor": 150,
+                "tipo": "Transferência Recebida",
+                "dia": "27/12/2021",
+                "hora": "1:35"
+              }
+            ]
+           
+          }
+          
+          
     ]
 }
+  

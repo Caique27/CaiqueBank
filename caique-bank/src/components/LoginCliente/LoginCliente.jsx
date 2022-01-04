@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./LoginCliente.css";
 import {
   TextField,
@@ -10,9 +10,13 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import LoginButton from "../LoginButton/LoginButton.jsx";
 import Validacao from "../../contexts/Validacao.js";
+import Autenticacao from "../../contexts/Autenticacao.js";
 
 function LoginCliente() {
   const [senha, setSenha] = useState("");
+  const [conta, setConta] = useState("");
+  const [agencia, setAgencia] = useState("");
+
   const [mostrarSenha, setMostrarSenha] = useState(false);
   const [buttonStatus, setButtonStatus] = useState("waiting");
 
@@ -21,16 +25,45 @@ function LoginCliente() {
   const [errosSenha, setErrosSenha] = useState({ valido: true, texto: "" });
 
   const validacoes = useContext(Validacao);
+  const autenticacoes = useContext(Autenticacao);
 
-  function checarCampo(evento, func) {
+  var emptyFields = senha == "" || conta == "" || agencia == "";
+  var noErrors = errosAgencia.valido && errosConta.valido && errosSenha.valido;
+
+  const [count, setCount] = useState(0);
+
+  //setLoading(true);
+
+  function checarCampo(id, func, value) {
     //teste preenchimento
-    if (evento.target.id == "Senha") {
-      func(validacoes.preenchimento(evento.target.value));
+    if (id == "Senha") {
+      func(validacoes.preenchimento(value));
     } else {
-      func(validacoes.numero(evento.target.value));
+      func(validacoes.numero(value));
     }
 
     // checarNumericos(evento, func);
+  }
+  function finalCheck() {
+    checarCampo("Senha", setErrosSenha, senha);
+    checarCampo("Conta", setErrosConta, conta);
+    checarCampo("Agencia", setErrosAgencia, agencia);
+  }
+  async function autenticar(evento) {
+    evento.preventDefault();
+
+    //setButtonStatus("loading");
+
+    if (emptyFields) {
+      setTimeout(() => {
+        setButtonStatus("waiting");
+      }, 500);
+
+      finalCheck();
+    } else if (buttonStatus == "waiting" && noErrors) {
+      var resultado = await autenticacoes.autenticacao(conta, senha, agencia);
+      console.log(resultado);
+    }
   }
 
   const handleClickShowPassword = () => {
@@ -45,7 +78,7 @@ function LoginCliente() {
     <form
       className="LoginCliente-form"
       onSubmit={(event) => {
-        event.preventDefault();
+        autenticar(event);
       }}
     >
       <Typography
@@ -60,9 +93,13 @@ function LoginCliente() {
       </Typography>
       <div className="LoginCliente-dados-conta">
         <TextField
-          onBlur={(event) => checarCampo(event, setErrosConta)}
+          onBlur={(event) => checarCampo(event.target.id, setErrosConta, conta)}
           id="Conta"
           label="Conta"
+          value={conta}
+          onChange={(event) => {
+            setConta(event.target.value);
+          }}
           helperText={errosConta.texto}
           variant="outlined"
           margin="normal"
@@ -77,7 +114,12 @@ function LoginCliente() {
           }}
         />
         <TextField
-          onBlur={(event) => checarCampo(event, setErrosAgencia)}
+          onBlur={(event) =>
+            checarCampo(event.target.id, setErrosAgencia, agencia)
+          }
+          onChange={(event) => {
+            setAgencia(event.target.value);
+          }}
           id="Agencia"
           label="Agência"
           helperText={errosAgencia.texto}
@@ -96,7 +138,7 @@ function LoginCliente() {
       </div>
       <div className="LoginCliente-senha">
         <TextField
-          onBlur={(event) => checarCampo(event, setErrosSenha)}
+          onBlur={(event) => checarCampo(event.target.id, setErrosSenha, senha)}
           id="Senha"
           label="Senha"
           helperText={errosSenha.texto}
@@ -142,11 +184,7 @@ function LoginCliente() {
           Esqueceu sua senha?
         </Typography>
       </div>
-      <LoginButton
-        texto="Entrar"
-        status={buttonStatus}
-        clicar={setButtonStatus}
-      />
+      <LoginButton texto="Entrar" status={buttonStatus} />
 
       <div className="LoginCliente-ajuda-conta">
         <Typography

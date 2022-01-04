@@ -4,12 +4,7 @@ import "./LoginButton.css";
 
 function LoginButton(props) {
   return (
-    <button
-      className="LoginButton-button"
-      onClick={() => {
-        props.clicar("loading");
-      }}
-    >
+    <button className="LoginButton-button">
       {props.status == "waiting" ? (
         <Typography
           sx={{
