@@ -11,8 +11,11 @@ import { Link } from "react-router-dom";
 import LoginButton from "../LoginButton/LoginButton.jsx";
 import Validacao from "../../contexts/Validacao.js";
 import Autenticacao from "../../contexts/Autenticacao.js";
+import { useHistory } from "react-router-dom";
 
 function LoginCliente() {
+  const history = useHistory();
+
   const [senha, setSenha] = useState("");
   const [conta, setConta] = useState("");
   const [agencia, setAgencia] = useState("");
@@ -52,7 +55,7 @@ function LoginCliente() {
   async function autenticar(evento) {
     evento.preventDefault();
 
-    //setButtonStatus("loading");
+    setButtonStatus("loading");
 
     if (emptyFields) {
       setTimeout(() => {
@@ -63,6 +66,30 @@ function LoginCliente() {
     } else if (buttonStatus == "waiting" && noErrors) {
       var resultado = await autenticacoes.autenticacao(conta, senha, agencia);
       console.log(resultado);
+      console.log(resultado.Autenticado);
+      if (resultado.Autenticado) {
+        console.log("login bem-sucedido");
+        //Redirecionamento de página
+        history.replace(`/cliente/${conta}`);
+      } else {
+        if (resultado.erro == "senha incorreta") {
+          setTimeout(() => {
+            setErrosSenha({ valido: false, texto: "*Senha Incorreta" });
+            setButtonStatus("waiting");
+          }, 1000);
+        } else {
+          setTimeout(() => {
+            setErrosConta({
+              valido: false,
+              texto: "*Conta e/ou agência não existem",
+            });
+            setErrosAgencia({ valido: false, texto: "" });
+            setButtonStatus("waiting");
+          }, 1000);
+        }
+      }
+    } else {
+      setButtonStatus("waiting");
     }
   }
 
@@ -103,9 +130,11 @@ function LoginCliente() {
           helperText={errosConta.texto}
           variant="outlined"
           margin="normal"
+          autoComplete="off"
           error={!errosConta.valido}
           color={errosConta.valido ? "third" : "error"}
           focused
+          disabled={buttonStatus == "loading" ? true : false}
           sx={{ width: "140%" }}
           inputProps={{
             style: {
@@ -125,6 +154,7 @@ function LoginCliente() {
           helperText={errosAgencia.texto}
           variant="outlined"
           margin="normal"
+          autoComplete="off"
           error={!errosAgencia.valido}
           color={errosAgencia.valido ? "third" : "error"}
           inputProps={{
@@ -133,6 +163,7 @@ function LoginCliente() {
             },
           }}
           focused
+          disabled={buttonStatus == "loading" ? true : false}
           fullWidth
         />
       </div>
@@ -152,6 +183,7 @@ function LoginCliente() {
           error={!errosSenha.valido}
           color={errosSenha.valido ? "third" : "error"}
           focused
+          disabled={buttonStatus == "loading" ? true : false}
           fullWidth
           InputProps={{
             endAdornment: (
@@ -170,6 +202,10 @@ function LoginCliente() {
               width: "110%",
               marginBottom: "0.01%",
               height: "90%",
+            },
+
+            form: {
+              autocomplete: "off",
             },
           }}
         />

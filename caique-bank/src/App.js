@@ -4,6 +4,7 @@ import React from "react";
 import Login from "./pages/Login/Login.jsx";
 import Construcao from "./pages/Construcao.jsx";
 import Pagina404 from "./pages/Pagina404/Pagina404.jsx";
+import HomeCliente from "./pages/HomeCliente/HomeCliente.jsx";
 import { ThemeProvider, createMuiTheme } from "@mui/material";
 import theme from "./assets/themes/theme.js";
 function App() {
@@ -16,7 +17,7 @@ function App() {
           </Route>
 
           <Route path="/cliente/:conta">
-            <Construcao />
+            <HomeCliente />
           </Route>
           <Route path="/gerente">
             <Construcao />
