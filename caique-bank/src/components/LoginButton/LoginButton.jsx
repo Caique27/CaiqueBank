@@ -9,7 +9,7 @@ function LoginButton(props) {
         <Typography
           sx={{
             fontFamily: "proxima nova regular",
-            fontSize: "90%",
+            fontSize: "110%",
           }}
         >
           {props.texto}

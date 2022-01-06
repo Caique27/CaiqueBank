@@ -15,19 +15,19 @@ body {
 }
 .login-box {
   background-color: white;
-  width: 90vh;
+  width: 100vh;
 
   border-radius: 3%;
   box-shadow: 2px 2px 7px rgb(61, 61, 61);
   margin: auto;
   margin-top: 1.5rem;
-  margin-bottom: 4.6%;
+  margin-bottom: 5%;
   vertical-align: baseline;
 }
 .login-nome {
   font-family: "jetbrains mono";
   color: white;
-  font-size: 5rem;
+  font-size: 6rem;
   font-weight: 600;
   margin-top: 2%;
   text-shadow: 2px 2px 3px #7e7c7c;
@@ -37,7 +37,7 @@ body {
   margin-top: 1.5%;
   display: flex;
   margin-left: 22%;
-  width: 90%;
+  width: 100%;
   user-select: none;
 }
 .login-logo {

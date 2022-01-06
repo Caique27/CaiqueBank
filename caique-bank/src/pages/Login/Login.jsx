@@ -30,14 +30,14 @@ function Login() {
               <Tab
                 label="Cliente"
                 disableRipple
-                sx={{ fontFamily: "proxima nova regular", fontSize: "90%" }}
+                sx={{ fontFamily: "proxima nova regular", fontSize: "110%" }}
               />
               <Tab
                 label="Gerente"
                 disableRipple
                 sx={{
                   fontFamily: "proxima nova regular",
-                  fontSize: "90%",
+                  fontSize: "110%",
                 }}
               />
             </Tabs>

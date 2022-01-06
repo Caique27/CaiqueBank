@@ -111,7 +111,7 @@ function LoginCliente() {
       <Typography
         sx={{
           fontFamily: "proxima nova regular",
-          fontSize: "90%",
+          fontSize: "110%",
           fontWeight: 500,
         }}
         align="center"
@@ -138,7 +138,7 @@ function LoginCliente() {
           sx={{ width: "140%" }}
           inputProps={{
             style: {
-              height: "110%",
+              height: "1.7rem",
             },
           }}
         />
@@ -159,7 +159,7 @@ function LoginCliente() {
           color={errosAgencia.valido ? "third" : "error"}
           inputProps={{
             style: {
-              height: "110%",
+              height: "1.7rem",
             },
           }}
           focused
@@ -212,8 +212,8 @@ function LoginCliente() {
         <Typography
           sx={{
             fontFamily: "proxima nova regular",
-            fontSize: "70%",
-            marginTop: "7%",
+            fontSize: "90%",
+            marginTop: "4%",
             marginLeft: "10%",
           }}
         >
@@ -224,7 +224,7 @@ function LoginCliente() {
 
       <div className="LoginCliente-ajuda-conta">
         <Typography
-          sx={{ fontFamily: "proxima nova regular", fontSize: "80%" }}
+          sx={{ fontFamily: "proxima nova regular", fontSize: "100%" }}
         >
           Ainda não tem uma conta ?
         </Typography>
@@ -234,7 +234,7 @@ function LoginCliente() {
             sx={{
               fontFamily: "proxima nova regular",
               color: "green",
-              fontSize: "80%",
+              fontSize: "100%",
               marginLeft: 1,
             }}
           >
