@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import "./LoginCliente.css";
+import "./LoginGerente.css";
 import {
   TextField,
   Typography,
@@ -7,47 +7,39 @@ import {
   IconButton,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+
 import LoginButton from "../LoginButton/LoginButton.jsx";
 import Validacao from "../../contexts/Validacao.js";
 import Autenticacao from "../../contexts/Autenticacao.js";
 import { useHistory } from "react-router-dom";
 
-function LoginCliente() {
+function LoginGerente() {
   const history = useHistory();
 
   const [senha, setSenha] = useState("");
-  const [conta, setConta] = useState("");
-  const [agencia, setAgencia] = useState("");
+  const [login, setLogin] = useState("");
 
   const [mostrarSenha, setMostrarSenha] = useState(false);
   const [buttonStatus, setButtonStatus] = useState("waiting");
 
-  const [errosAgencia, setErrosAgencia] = useState({ valido: true, texto: "" });
-  const [errosConta, setErrosConta] = useState({ valido: true, texto: "" });
+  const [errosLogin, setErrosLogin] = useState({ valido: true, texto: "" });
   const [errosSenha, setErrosSenha] = useState({ valido: true, texto: "" });
 
   const validacoes = useContext(Validacao);
   const autenticacoes = useContext(Autenticacao);
 
-  var emptyFields = senha == "" || conta == "" || agencia == "";
-  var noErrors = errosAgencia.valido && errosConta.valido && errosSenha.valido;
+  var emptyFields = senha == "" || login == "";
+  var noErrors = errosLogin.valido && errosSenha.valido;
 
   function checarCampo(id, func, value) {
     //teste preenchimento
-    if (id == "Senha") {
-      func(validacoes.preenchimento(value));
-    } else {
-      func(validacoes.numero(value));
-    }
-
-    // checarNumericos(evento, func);
+    func(validacoes.preenchimento(value));
   }
   function finalCheck() {
     checarCampo("Senha", setErrosSenha, senha);
-    checarCampo("Conta", setErrosConta, conta);
-    checarCampo("Agencia", setErrosAgencia, agencia);
+    checarCampo("Login", setErrosLogin, login);
   }
+
   async function autenticar(evento) {
     evento.preventDefault();
 
@@ -60,29 +52,25 @@ function LoginCliente() {
 
       finalCheck();
     } else if (buttonStatus == "waiting" && noErrors) {
-      var resultado = await autenticacoes.autenticacaoCliente(
-        conta,
-        senha,
-        agencia
-      );
+      var resultado = await autenticacoes.autenticacaoGerente(login, senha);
 
       if (resultado.Autenticado) {
         console.log("login bem-sucedido");
         //Redirecionamento de página
-        history.replace(`/cliente/${conta}`);
+        history.replace(`/gerente/${login}`);
       } else {
-        if (resultado.erro == "senha incorreta") {
+        if (resultado.erro == "*Senha incorreta") {
           setTimeout(() => {
             setErrosSenha({ valido: false, texto: "*Senha Incorreta" });
             setButtonStatus("waiting");
           }, 1000);
         } else {
           setTimeout(() => {
-            setErrosConta({
+            setErrosLogin({
               valido: false,
-              texto: "*Conta e/ou agência não existem",
+              texto: "*Usuário não existe",
             });
-            setErrosAgencia({ valido: false, texto: "" });
+
             setButtonStatus("waiting");
           }, 1000);
         }
@@ -102,7 +90,7 @@ function LoginCliente() {
 
   return (
     <form
-      className="LoginCliente-form"
+      className="LoginGerente-form"
       onSubmit={(event) => {
         autenticar(event);
       }}
@@ -115,23 +103,23 @@ function LoginCliente() {
         }}
         align="center"
       >
-        Acesse sua conta
+        Faça login no sistema
       </Typography>
-      <div className="LoginCliente-dados-conta">
+      <div className="LoginCliente-dados-login">
         <TextField
-          onBlur={(event) => checarCampo(event.target.id, setErrosConta, conta)}
-          id="Conta"
-          label="Conta"
-          value={conta}
+          onBlur={(event) => checarCampo(event.target.id, setErrosLogin, login)}
+          id="Login"
+          label="Login"
+          value={login}
           onChange={(event) => {
-            setConta(event.target.value);
+            setLogin(event.target.value);
           }}
-          helperText={errosConta.texto}
+          helperText={errosLogin.texto}
           variant="outlined"
           margin="normal"
           autoComplete="off"
-          error={!errosConta.valido}
-          color={errosConta.valido ? "third" : "error"}
+          error={!errosLogin.valido}
+          color={errosLogin.valido ? "third" : "error"}
           focused
           disabled={buttonStatus == "loading" ? true : false}
           sx={{ width: "140%" }}
@@ -141,32 +129,9 @@ function LoginCliente() {
             },
           }}
         />
-        <TextField
-          onBlur={(event) =>
-            checarCampo(event.target.id, setErrosAgencia, agencia)
-          }
-          onChange={(event) => {
-            setAgencia(event.target.value);
-          }}
-          id="Agencia"
-          label="Agência"
-          helperText={errosAgencia.texto}
-          variant="outlined"
-          margin="normal"
-          autoComplete="off"
-          error={!errosAgencia.valido}
-          color={errosAgencia.valido ? "third" : "error"}
-          inputProps={{
-            style: {
-              height: "1.7rem",
-            },
-          }}
-          focused
-          disabled={buttonStatus == "loading" ? true : false}
-          fullWidth
-        />
       </div>
-      <div className="LoginCliente-senha">
+
+      <div className="LoginGerente-senha">
         <TextField
           onBlur={(event) => checarCampo(event.target.id, setErrosSenha, senha)}
           id="Senha"
@@ -220,29 +185,7 @@ function LoginCliente() {
         </Typography>
       </div>
       <LoginButton texto="Entrar" status={buttonStatus} />
-
-      <div className="LoginCliente-ajuda-conta">
-        <Typography
-          sx={{ fontFamily: "proxima nova regular", fontSize: "100%" }}
-        >
-          Ainda não tem uma conta ?
-        </Typography>
-
-        <Link to={"/caique"}>
-          <Typography
-            sx={{
-              fontFamily: "proxima nova regular",
-              color: "green",
-              fontSize: "100%",
-              marginLeft: 1,
-            }}
-          >
-            Crie uma
-          </Typography>
-        </Link>
-      </div>
-      <div id="margin">.</div>
     </form>
   );
 }
-export default LoginCliente;
+export default LoginGerente;

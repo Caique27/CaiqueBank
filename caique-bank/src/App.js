@@ -5,7 +5,8 @@ import Login from "./pages/Login/Login.jsx";
 import Construcao from "./pages/Construcao.jsx";
 import Pagina404 from "./pages/Pagina404/Pagina404.jsx";
 import HomeCliente from "./pages/HomeCliente/HomeCliente.jsx";
-import { ThemeProvider, createMuiTheme } from "@mui/material";
+import { ThemeProvider } from "@mui/material";
+import HomeGerente from "./pages/HomeGerente/HomeGerente.jsx";
 import theme from "./assets/themes/theme.js";
 function App() {
   return (
@@ -19,8 +20,8 @@ function App() {
           <Route path="/cliente/:conta">
             <HomeCliente />
           </Route>
-          <Route path="/gerente">
-            <Construcao />
+          <Route path="/gerente/:login">
+            <HomeGerente />
           </Route>
           <Route>
             <Pagina404 />

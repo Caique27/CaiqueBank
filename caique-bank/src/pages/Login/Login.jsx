@@ -1,15 +1,25 @@
 import React, { useState } from "react";
 import "./Login.css";
 import Image from "../../assets/img/Logo.png";
-import { Tabs, Tab, Box, TabPanel } from "@mui/material";
+import { Tabs, Tab, Box } from "@mui/material";
 import LoginCliente from "../../components/LoginCliente/LoginCliente.jsx";
+import LoginGerente from "../../components/LoginGerente/LoginGerente.jsx";
+
+import SwipeableViews from "react-swipeable-views";
+import { useTheme } from "@mui/material/styles";
 
 function Login() {
-  const [value, setValue] = useState(1);
-  const menus = [<LoginCliente />, <h1>componente login gerente</h1>];
+  const theme = useTheme();
+  const [value, setValue] = useState(0);
+  const menus = [<LoginCliente />, <LoginGerente />];
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const handleChangeIndex = (index) => {
+    setValue(index);
+  };
+
   return (
     <section className="login-page">
       <header className="login-header">
@@ -18,9 +28,10 @@ function Login() {
       </header>
 
       <div className="login-box">
-        <Box sx={{ width: "100%" }}>
-          <Box sx={{ borderBottom: 0.5, borderColor: "divider" }}>
+        <Box sx={{ width: "100%", borderBottom: 2, borderColor: "divider" }}>
+          <Box>
             <Tabs
+              sx={{ borderBottom: 0.5, borderColor: "divider" }}
               value={value}
               onChange={handleChange}
               variant="fullWidth"
@@ -41,10 +52,15 @@ function Login() {
                 }}
               />
             </Tabs>
+            <SwipeableViews
+              axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+              index={value}
+            >
+              <div className="login-conteudo">{menus[0]}</div>
+              <div className="login-conteudo">{menus[1]}</div>
+            </SwipeableViews>
           </Box>
         </Box>
-
-        <div className="login-conteudo">{menus[value]}</div>
       </div>
     </section>
   );

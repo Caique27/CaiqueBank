@@ -1,0 +1,13 @@
+.LoginGerente-form {
+  margin: 2% 7%;
+}
+.LoginGerente-senha {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 3%;
+}
+.LoginCliente-dados-login {
+  display: flex;
+  flex-direction: row;
+}
