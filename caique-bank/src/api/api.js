@@ -7,6 +7,6 @@ export const busca = async (url) => {
   const resposta = await api.get(url);
   return resposta.data;
 };
-export const adicionar = async (url, novoProduto) => {
-  const resposta = await api.post(url, novoProduto);
+export const adicionar = async (url, novaConta) => {
+  const adicao = await api.post(url, novaConta);
 };

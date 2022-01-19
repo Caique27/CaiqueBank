@@ -228,7 +228,7 @@ function LoginCliente() {
           Ainda não tem uma conta ?
         </Typography>
 
-        <Link to={"/caique"}>
+        <Link to={"/criarConta"}>
           <Typography
             sx={{
               fontFamily: "proxima nova regular",

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 import Image from "../../assets/img/Logo.png";
-import { Tabs, Tab, Box } from "@mui/material";
+import { Tabs, Tab, Box, Step, Stepper, StepLabel } from "@mui/material";
 import LoginCliente from "../../components/LoginCliente/LoginCliente.jsx";
 import LoginGerente from "../../components/LoginGerente/LoginGerente.jsx";
 

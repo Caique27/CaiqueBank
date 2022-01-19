@@ -1,6 +1,6 @@
 import Time from "./Time.js";
 export default class Conta {
-  static listaContas = [];
+  // static listaContas = [];
   constructor(numeroConta, nomeCliente, senha, saldo) {
     this._numeroConta = numeroConta;
     this._nomeCliente = nomeCliente;
@@ -8,7 +8,7 @@ export default class Conta {
     this._saldo = saldo;
     this.agencia = "0001";
     this._transacoes = [];
-    Conta.listaContas.push(this);
+    //   Conta.listaContas.push(this);
   }
   get numeroConta() {
     return this._numeroConta;

@@ -1,0 +1,21 @@
+.DadosPessoais-form {
+  margin: 2% 7%;
+}
+.DadosPessoais-info {
+  display: flex;
+  flex-direction: row;
+  margin-top: 3%;
+}
+.DadosPessoais-nome {
+  display: flex;
+  flex-direction: row;
+}
+.DadosPessoais-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+.DadosPessoais-genero {
+  margin-left: 11%;
+  margin-top: -1%;
+}

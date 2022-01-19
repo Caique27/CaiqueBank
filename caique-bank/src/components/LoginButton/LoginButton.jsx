@@ -3,8 +3,14 @@ import { Typography, LinearProgress } from "@mui/material";
 import "./LoginButton.css";
 
 function LoginButton(props) {
+  var estilo;
+  if (props.size == "small") {
+    estilo = "LoginButton-small";
+  } else {
+    estilo = "LoginButton-big";
+  }
   return (
-    <button className="LoginButton-button">
+    <button className={`LoginButton-button ${estilo}`}>
       {props.status == "waiting" ? (
         <Typography
           sx={{

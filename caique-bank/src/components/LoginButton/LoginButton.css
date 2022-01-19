@@ -1,5 +1,4 @@
 .LoginButton-button {
-  width: 95%;
   height: 3.1rem;
   background: linear-gradient(
     90deg,
@@ -10,8 +9,15 @@
   border-radius: 4px;
   border: none;
   margin-top: 4%;
-  margin-left: 3%;
 }
 .LoginButton-button:hover {
   opacity: 0.9;
+}
+.LoginButton-big {
+  width: 95%;
+  margin-left: 3%;
+}
+.LoginButton-small {
+  width: 80%;
+  margin-left: 48%;
 }

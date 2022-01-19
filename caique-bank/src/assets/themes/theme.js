@@ -15,7 +15,9 @@ const theme = createMuiTheme({
     fourth: {
       main: "#f5f5f5",
     },
+    fifth: {
+      main: "#a6a6a6",
+    },
   },
-  fontFamily: "korataki regular",
 });
 export default theme;

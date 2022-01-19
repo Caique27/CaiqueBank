@@ -1,53 +1,117 @@
 {
-    "contas":[
+  "contas": [
+    {
+      "id": 1,
+      "_numeroConta": 2343,
+      "_nomeCliente": "Maria",
+      "genero": "Masculino",
+      "_senha": 12345,
+      "_saldo": 3350,
+      "agencia": "0001",
+      "_transacoes": [
         {
-              "id":1,
-              "_numeroConta": 2343,
-              "_nomeCliente": "Maria",
-              "_senha": 1234,
-              "_saldo": 3350,
-              "agencia": "0001",
-              "_transacoes": [
-                { "valor": 200, "tipo": "Depósito", "dia": "27/12/2021", "hora": "1:35" },
-                {
-                  "valor": 150,
-                  "tipo": "Transferência Recebida",
-                  "dia": "27/12/2021",
-                  "hora": "1:35"
-                }
-              ]
-            },
-  
-      {
-            "id":2,
-            "_numeroConta": 3242,
-            "_nomeCliente": "João",
-            "_senha": 4321,
-            "_saldo": 1250,
-            "agencia": "0001",
-            "_transacoes": [
-              { "valor": 200, "tipo": "Depósito", "dia": "27/12/2021", "hora": "1:35" },
-              {
-                "valor": 150,
-                "tipo": "Transferência Recebida",
-                "dia": "27/12/2021",
-                "hora": "1:35"
-              }
-            ]
-           
-          }
-          
-          
-    ],
-    "gerentes":[
-      {
-        "id":1,
-        "login":"caique",
-        "_senha":"admin"
-        
-        
-       
-      }
-    ]
+          "valor": 200,
+          "tipo": "Depósito",
+          "dia": "27/12/2021",
+          "hora": "1:35"
+        },
+        {
+          "valor": 150,
+          "tipo": "Transferência Recebida",
+          "dia": "27/12/2021",
+          "hora": "1:35"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "_numeroConta": 3242,
+      "_nomeCliente": "João",
+      "genero": "Masculino",
+      "_senha": 4321,
+      "_saldo": 1250,
+      "agencia": "0001",
+      "_transacoes": [
+        {
+          "valor": 200,
+          "tipo": "Depósito",
+          "dia": "27/12/2021",
+          "hora": "1:35"
+        },
+        {
+          "valor": 150,
+          "tipo": "Transferência Recebida",
+          "dia": "27/12/2021",
+          "hora": "1:35"
+        }
+      ]
+    },
+    {
+      "_numeroConta": 3517,
+      "_nomeCliente": "Caique",
+      "genero": "Masculino",
+      "_senha": "54321",
+      "_saldo": 100,
+      "agencia": "0001",
+      "_transacoes": [],
+      "id": 3
+    },
+    {
+      "_numeroConta": 3177,
+      "_nomeCliente": "Pedro",
+      "genero": "Masculino",
+      "_senha": "senha1",
+      "_saldo": 100,
+      "agencia": "0001",
+      "_transacoes": [],
+      "id": 4
+    },
+    {
+      "_numeroConta": 6477,
+      "_nomeCliente": "Joana",
+      "genero": "Feminino",
+      "_senha": "2354",
+      "_saldo": 100,
+      "agencia": "0001",
+      "_transacoes": [],
+      "id": 5
+    },
+    {
+      "_numeroConta": 1985,
+      "_nomeCliente": "Ana",
+      "genero": "Feminino",
+      "_senha": "23545",
+      "_saldo": 100,
+      "agencia": "0001",
+      "_transacoes": [],
+      "id": 6
+    },
+    {
+      "_numeroConta": 5743,
+      "_nomeCliente": "Marcos",
+      "genero": "Masculino",
+      "_senha": "asdfasdf",
+      "_saldo": 100,
+      "agencia": "0001",
+      "_transacoes": [],
+      "id": 7
+    },
+    {
+      "_numeroConta": 2232,
+      "_nomeCliente": "José",
+      "genero": "Masculino",
+      "_senha": "123456",
+      "_saldo": 100,
+      "agencia": "0001",
+      "_transacoes": [],
+      "id": 8
+    }
+  ],
+  "gerentes": [
+    {
+      "id": 1,
+      "login": "caique",
+      "_senha": "admin"
+    }
+  ]
 }
-  
