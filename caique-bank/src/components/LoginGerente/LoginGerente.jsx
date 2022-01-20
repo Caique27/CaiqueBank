@@ -55,7 +55,6 @@ function LoginGerente() {
       var resultado = await autenticacoes.autenticacaoGerente(login, senha);
 
       if (resultado.Autenticado) {
-        console.log("login bem-sucedido");
         //Redirecionamento de página
         history.replace(`/gerente/${login}`);
       } else {

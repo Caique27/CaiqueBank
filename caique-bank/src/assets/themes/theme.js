@@ -1,7 +1,7 @@
-import { MuiThemeProvider, createMuiTheme } from "@mui/material";
+import { MuiThemeProvider, createTheme } from "@mui/material";
 
 // Crie seu próprio tema:
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: "rgba(0, 255, 21, 0.664);",

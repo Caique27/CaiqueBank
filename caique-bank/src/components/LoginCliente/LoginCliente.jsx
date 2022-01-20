@@ -67,7 +67,6 @@ function LoginCliente() {
       );
 
       if (resultado.Autenticado) {
-        console.log("login bem-sucedido");
         //Redirecionamento de página
         history.replace(`/cliente/${conta}`);
       } else {

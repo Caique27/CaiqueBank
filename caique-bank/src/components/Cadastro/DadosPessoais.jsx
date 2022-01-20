@@ -13,8 +13,9 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import "./DadosPessoais.css";
 import LoginButton from "../LoginButton/LoginButton.jsx";
 import Validacao from "../../contexts/Validacao.js";
-
+import { useHistory } from "react-router-dom";
 function DadosPessoais(props) {
+  const history = useHistory();
   const [buttonStatus, setButtonStatus] = useState("waiting");
 
   const [nome, setNome] = useState("");
@@ -171,7 +172,6 @@ function DadosPessoais(props) {
             onChange={(event) => {
               setGenero(event.target.value);
             }}
-            error
             aria-label="gender"
             defaultValue="Masculino"
             name="radio-buttons-group"
@@ -181,18 +181,27 @@ function DadosPessoais(props) {
               value="Masculino"
               control={<Radio />}
               label="Masculino"
+              key={"masculino"}
             />
             <FormControlLabel
               value="Feminino"
               control={<Radio />}
               label="Feminino"
+              key={"feminino"}
             />
           </RadioGroup>
         </div>
       </div>
 
       <LoginButton texto="Próximo >" status={buttonStatus} />
-
+      <div
+        className="DadosPessoais-link"
+        onClick={() => {
+          history.replace(`/`);
+        }}
+      >
+        Voltar a página de Login
+      </div>
       <div id="margin">.</div>
     </form>
   );

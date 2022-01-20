@@ -35,16 +35,17 @@ function Feedback(props) {
           align="center"
         >
           O número da sua nova conta é:
-          <Typography
-            sx={{
-              fontFamily: "proxima nova regular",
-              fontSize: "106%",
-              fontWeight: 500,
-              color: "rgb(6, 172, 0)",
-            }}
-          >
-            {props.numeroConta}
-          </Typography>
+        </Typography>
+        <Typography
+          sx={{
+            fontFamily: "proxima nova regular",
+            fontSize: "106%",
+            fontWeight: 500,
+            color: "rgb(6, 172, 0)",
+          }}
+          align="center"
+        >
+          {props.numeroConta}
         </Typography>
       </div>
       <div

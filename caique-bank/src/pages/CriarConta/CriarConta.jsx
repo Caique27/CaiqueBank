@@ -20,17 +20,19 @@ function CriarConta() {
       voltarPagina={anterior}
       registrarConta={registrarConta}
       dados={dadosColetados}
+      key={2}
     />
   );
   const pages = [
-    <DadosPessoais proximaPagina={proximo} atualizar={atualizar} />,
+    <DadosPessoais proximaPagina={proximo} atualizar={atualizar} key={0} />,
     <DadosLogin
       voltarPagina={anterior}
       proximaPagina={proximo}
       atualizar={atualizar}
+      key={1}
     />,
-    etapaAtual == 2 ? componenteConfirmacao : <h1>confirmacao</h1>,
-    <Feedback numeroConta={numeroFeedback} />,
+    etapaAtual == 2 ? componenteConfirmacao : <h1 key={2}>confirmacao</h1>,
+    <Feedback numeroConta={numeroFeedback} key={3} />,
   ];
   function proximo() {
     if (etapaAtual < 3) {
@@ -58,7 +60,6 @@ function CriarConta() {
     for (var conta in contas) {
       numeros.push(contas[conta]._numeroConta);
     }
-    console.log(numeros);
 
     var num = Math.floor(Math.random() * 9999) + 1;
 
