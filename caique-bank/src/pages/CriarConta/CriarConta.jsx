@@ -107,7 +107,7 @@ function CriarConta() {
             <Tab
               label="Criar Conta"
               disableRipple
-              sx={{ fontFamily: "proxima nova regular", fontSize: "110%" }}
+              sx={{ fontFamily: "proxima nova", fontSize: "110%" }}
             />
           </Tabs>
         </Box>

@@ -96,7 +96,7 @@ function LoginGerente() {
     >
       <Typography
         sx={{
-          fontFamily: "proxima nova regular",
+          fontFamily: "proxima nova",
           fontSize: "110%",
           fontWeight: 500,
         }}
@@ -174,7 +174,7 @@ function LoginGerente() {
         />
         <Typography
           sx={{
-            fontFamily: "proxima nova regular",
+            fontFamily: "proxima nova",
             fontSize: "90%",
             marginTop: "4%",
             marginLeft: "10%",

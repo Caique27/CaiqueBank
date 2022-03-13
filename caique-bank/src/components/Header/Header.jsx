@@ -23,7 +23,7 @@ function Header(props) {
       <section className="Header-greeting">
         <Typography
           sx={{
-            fontFamily: "proxima nova regular",
+            fontFamily: "proxima nova",
             fontSize: "1.3rem",
             fontWeight: 500,
             color: "white",
@@ -33,7 +33,7 @@ function Header(props) {
         </Typography>
         <Typography
           sx={{
-            fontFamily: "proxima nova regular",
+            fontFamily: "proxima nova",
             fontSize: "2rem",
             fontWeight: 700,
             color: "white",
@@ -45,9 +45,9 @@ function Header(props) {
       <section className="Header-time">
         <Typography
           sx={{
-            fontFamily: "proxima nova regular",
+            fontFamily: "proxima nova",
             fontSize: "1.1rem",
-            fontWeight: 500,
+            fontWeight: 600,
             color: "white",
             display: "flex",
             flexDirecton: "row",
@@ -59,9 +59,9 @@ function Header(props) {
         </Typography>
         <Typography
           sx={{
-            fontFamily: "proxima nova regular",
+            fontFamily: "proxima nova",
             fontSize: "1.3rem",
-            fontWeight: 600,
+            fontWeight: 700,
             color: "white",
             marginTop: "1rem",
           }}

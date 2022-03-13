@@ -14,7 +14,7 @@ function LoginButton(props) {
       {props.status == "waiting" ? (
         <Typography
           sx={{
-            fontFamily: "proxima nova regular",
+            fontFamily: "proxima nova",
             fontSize: "110%",
           }}
         >

@@ -6,6 +6,7 @@
   height: 6rem;
   margin-left: 2%;
   margin-top: 1.1%;
+  filter: drop-shadow(2px 2px 4px #999999);
 }
 .Header-main {
   display: flex;
@@ -18,7 +19,7 @@
 }
 .Header-time {
   margin-top: 1.8rem;
-  margin-left: 60rem;
+  margin-left: 135vh;
   float: right;
   text-align: right;
 }

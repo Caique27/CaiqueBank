@@ -7,7 +7,7 @@ function BackButton({ aoClicar }) {
     <button type="button" className={`BackButton-button `} onClick={aoClicar}>
       <Typography
         sx={{
-          fontFamily: "proxima nova regular",
+          fontFamily: "proxima nova",
           fontSize: "110%",
         }}
       >

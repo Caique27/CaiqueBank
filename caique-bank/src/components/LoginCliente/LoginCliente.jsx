@@ -108,7 +108,7 @@ function LoginCliente() {
     >
       <Typography
         sx={{
-          fontFamily: "proxima nova regular",
+          fontFamily: "proxima nova",
           fontSize: "110%",
           fontWeight: 500,
         }}
@@ -209,7 +209,7 @@ function LoginCliente() {
         />
         <Typography
           sx={{
-            fontFamily: "proxima nova regular",
+            fontFamily: "proxima nova",
             fontSize: "90%",
             marginTop: "4%",
             marginLeft: "10%",
@@ -221,24 +221,17 @@ function LoginCliente() {
       <LoginButton texto="Entrar" status={buttonStatus} />
 
       <div className="LoginCliente-ajuda-conta">
-        <Typography
-          sx={{ fontFamily: "proxima nova regular", fontSize: "100%" }}
-        >
-          Ainda não tem uma conta ?
-        </Typography>
+      <div 
+        className="LoginCliente-ajuda-conta-question" >Ainda não tem uma conta ?
+        
+      </div>
 
-        <Link to={"/criarConta"}>
-          <Typography
-            sx={{
-              fontFamily: "proxima nova regular",
-              color: "green",
-              fontSize: "100%",
-              marginLeft: 1,
-            }}
-          >
-            Crie uma
-          </Typography>
-        </Link>
+        
+          
+          <div  onClick={() => {
+          history.replace(`/criarConta`);
+        }}className="LoginCliente-ajuda-conta-button" >Crie uma</div>
+        
       </div>
       <div id="margin">.</div>
     </form>

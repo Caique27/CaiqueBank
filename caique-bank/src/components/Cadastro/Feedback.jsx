@@ -14,7 +14,7 @@ function Feedback(props) {
         />
         <Typography
           sx={{
-            fontFamily: "proxima nova regular",
+            fontFamily: "proxima nova",
             fontSize: "170%",
             fontWeight: 500,
             marginTop: "1.5%",
@@ -27,7 +27,7 @@ function Feedback(props) {
       <div className="Feedback-info">
         <Typography
           sx={{
-            fontFamily: "proxima nova regular",
+            fontFamily: "proxima nova",
             fontSize: "106%",
             fontWeight: 500,
             marginTop: "1.5%",
@@ -38,7 +38,7 @@ function Feedback(props) {
         </Typography>
         <Typography
           sx={{
-            fontFamily: "proxima nova regular",
+            fontFamily: "proxima nova",
             fontSize: "106%",
             fontWeight: 500,
             color: "rgb(6, 172, 0)",

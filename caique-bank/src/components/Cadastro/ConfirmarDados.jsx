@@ -30,7 +30,7 @@ function ConfirmarDados(props) {
     >
       <Typography
         sx={{
-          fontFamily: "proxima nova regular",
+          fontFamily: "proxima nova",
           fontSize: "110%",
           fontWeight: 500,
         }}

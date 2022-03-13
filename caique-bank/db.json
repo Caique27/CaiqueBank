@@ -57,74 +57,14 @@
       "id": 3
     },
     {
-      "_numeroConta": 3177,
-      "_nomeCliente": "Pedro",
+      "_numeroConta": 6324,
+      "_nomeCliente": "Mario",
       "genero": "Masculino",
-      "_senha": "senha1",
+      "_senha": "1234",
       "_saldo": 100,
       "agencia": "0001",
       "_transacoes": [],
       "id": 4
-    },
-    {
-      "_numeroConta": 6477,
-      "_nomeCliente": "Joana",
-      "genero": "Feminino",
-      "_senha": "2354",
-      "_saldo": 100,
-      "agencia": "0001",
-      "_transacoes": [],
-      "id": 5
-    },
-    {
-      "_numeroConta": 1985,
-      "_nomeCliente": "Ana",
-      "genero": "Feminino",
-      "_senha": "23545",
-      "_saldo": 100,
-      "agencia": "0001",
-      "_transacoes": [],
-      "id": 6
-    },
-    {
-      "_numeroConta": 5743,
-      "_nomeCliente": "Marcos",
-      "genero": "Masculino",
-      "_senha": "asdfasdf",
-      "_saldo": 100,
-      "agencia": "0001",
-      "_transacoes": [],
-      "id": 7
-    },
-    {
-      "_numeroConta": 2232,
-      "_nomeCliente": "José",
-      "genero": "Masculino",
-      "_senha": "123456",
-      "_saldo": 100,
-      "agencia": "0001",
-      "_transacoes": [],
-      "id": 8
-    },
-    {
-      "_numeroConta": 5079,
-      "_nomeCliente": "Jonas",
-      "genero": "Masculino",
-      "_senha": "asdf",
-      "_saldo": 100,
-      "agencia": "0001",
-      "_transacoes": [],
-      "id": 9
-    },
-    {
-      "_numeroConta": 8548,
-      "_nomeCliente": "Paulo",
-      "genero": "Masculino",
-      "_senha": "132435",
-      "_saldo": 100,
-      "agencia": "0001",
-      "_transacoes": [],
-      "id": 10
     }
   ],
   "gerentes": [
