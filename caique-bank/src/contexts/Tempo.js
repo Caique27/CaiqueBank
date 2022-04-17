@@ -5,9 +5,16 @@ const Tempo = React.createContext({
 });
 function dataAtual() {
   var getData = new Date();
-  var day = `${getData.getDate()}/${
-    getData.getMonth() + 1
+
+  var day = `${getData.getDate()<10?
+    `0${getData.getDate()}`
+    :getData.getDate()
+  }/${
+    getData.getMonth() <9?
+    `0${getData.getMonth()+1}`:
+    getData.getMonth()
   }/${getData.getFullYear()}`;
+
   var minutos = String(
     getData.getMinutes() < 10
       ? "0" + getData.getMinutes()
