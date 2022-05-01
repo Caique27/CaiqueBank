@@ -19,7 +19,8 @@
 }
 .Header-time {
   margin-top: 1.8rem;
-  margin-left: 135vh;
+  margin-left: 125vh;
+  margin-right: 1%;
   float: right;
   text-align: right;
 }
