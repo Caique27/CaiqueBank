@@ -19,9 +19,12 @@ function Header(props) {
 
   return (
     <main className="Header-main">
-      <img src={Image} alt="Logo" className="Header-logo" />
-      <section className="Header-greeting">
-        <Typography
+      
+      <section className="Header-intro">
+        <img src={Image} alt="Logo" className="Header-logo" />
+        <section className="Header-greeting">
+
+          <Typography
           sx={{
             fontFamily: "proxima nova",
             fontSize: "1.3rem",
@@ -41,6 +44,8 @@ function Header(props) {
         >
           {props.nome}
         </Typography>
+        </section>
+        
       </section>
       <section className="Header-time">
         <Typography
