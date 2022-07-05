@@ -7,6 +7,8 @@ import {
   IconButton,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 import { Link } from "react-router-dom";
 import LoginButton from "../LoginButton/LoginButton.jsx";
 import Validacao from "../../contexts/Validacao.js";
@@ -29,6 +31,11 @@ function LoginCliente() {
 
   const validacoes = useContext(Validacao);
   const autenticacoes = useContext(Autenticacao);
+
+  const [open,setOpen]= useState(false)
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   var emptyFields = senha == "" || conta == "" || agencia == "";
   var noErrors = errosAgencia.valido && errosConta.valido && errosSenha.valido;
@@ -60,6 +67,7 @@ function LoginCliente() {
 
       finalCheck();
     } else if (buttonStatus == "waiting" && noErrors) {
+      try{
       var resultado = await autenticacoes.autenticacaoCliente(
         conta,
         senha,
@@ -86,6 +94,15 @@ function LoginCliente() {
           }, 1000);
         }
       }
+
+    }catch(erro){
+      console.log('erro')
+      setOpen(true)
+      setTimeout(() => {
+        setButtonStatus("waiting");
+      }, 500);
+    }
+     
     } else {
       setButtonStatus("waiting");
     }
@@ -234,6 +251,13 @@ function LoginCliente() {
         
       </div>
       <div id="margin">.</div>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} anchorOrigin={{vertical: 'bottom',
+          horizontal: 'center', }}
+>
+        <Alert variant="filled" severity="error" sx={{ width: '100%' }}>
+          Falha de conexão. Tente novamente mais tarde.
+        </Alert>
+      </Snackbar>
     </form>
   );
 }
