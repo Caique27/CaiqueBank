@@ -16,7 +16,43 @@
           "hora": "1:35"
         },
         {
-          "valor": 150,
+          "valor": 150.5,
+          "tipo": "Transferência Recebida",
+          "dia": "27/12/2021",
+          "hora": "1:35"
+        },
+        {
+          "valor": 1.5,
+          "tipo": "Transferência Realizada",
+          "dia": "27/12/2021",
+          "hora": "1:35"
+        },
+        {
+          "valor": 1500.5,
+          "tipo": "Transferência Recebida",
+          "dia": "27/12/2021",
+          "hora": "1:35"
+        },
+        {
+          "valor": 200,
+          "tipo": "Depósito",
+          "dia": "27/12/2021",
+          "hora": "1:35"
+        },
+        {
+          "valor": 150.5,
+          "tipo": "Transferência Recebida",
+          "dia": "27/12/2021",
+          "hora": "1:35"
+        },
+        {
+          "valor": 15,
+          "tipo": "Transferência Realizada",
+          "dia": "27/12/2021",
+          "hora": "1:35"
+        },
+        {
+          "valor": 1500.5,
           "tipo": "Transferência Recebida",
           "dia": "27/12/2021",
           "hora": "1:35"
@@ -65,6 +101,26 @@
       "agencia": "0001",
       "_transacoes": [],
       "id": 4
+    },
+    {
+      "_numeroConta": 8124,
+      "_nomeCliente": "Pedro",
+      "genero": "Masculino",
+      "_senha": "1234",
+      "_saldo": 100,
+      "agencia": "0001",
+      "_transacoes": [],
+      "id": 5
+    },
+    {
+      "_numeroConta": 762,
+      "_nomeCliente": "Enzo",
+      "genero": "Masculino",
+      "_senha": "123",
+      "_saldo": 100,
+      "agencia": "0001",
+      "_transacoes": [],
+      "id": 6
     }
   ],
   "gerentes": [

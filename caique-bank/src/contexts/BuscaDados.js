@@ -9,6 +9,7 @@ async function dadosConta(numConta){
       
       var contaSelecionada = contas[conta];
       console.log(contaSelecionada)
+      console.log(contaSelecionada._transacoes)
     }
   }
   return(contaSelecionada)

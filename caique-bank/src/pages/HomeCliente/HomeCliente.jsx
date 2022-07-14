@@ -5,7 +5,7 @@ import Header from "../../components/Header/Header.jsx";
 import { Tabs, Tab, Box, Step, Stepper, StepLabel } from "@mui/material";
 
 import MinhaConta from "../../components/MinhaConta/MinhaConta.jsx"
-import Extrato from "../../components/Extrato/Extrato.jsx"
+import Extrato from "../../components/Extrato/Extrato";
 
 import SwipeableViews from "react-swipeable-views";
 import { useTheme } from "@mui/material/styles";
@@ -14,7 +14,7 @@ import BuscaDados from "../../contexts/BuscaDados.js"
 
 function HomeCliente() {
   const buscaDados = useContext(BuscaDados)
-  const [dados,setDados] = useState({_nomeCliente:'...'})
+  const [dados,setDados] = useState({_nomeCliente:'...', _transacoes:[]})
   const { conta } = useParams();
   //const []
   //async function initialRequest(){
@@ -39,7 +39,7 @@ function HomeCliente() {
   const theme = useTheme();
   
   const [value, setValue] = useState(0);
-  const menus = [<MinhaConta data={'estes são os dados'}/>, <Extrato/>,<h1>Operações</h1>];
+  const menus = [<MinhaConta data={'estes são os dados'}/>, <Extrato data={dados._transacoes}/>,<h1>Operações</h1>];
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -87,11 +87,11 @@ function HomeCliente() {
             </Tabs>
             <SwipeableViews
               axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-              index={value}
+              index={value}             
             >
-              <div >{menus[0]}</div>
-              <div >{menus[1]}</div>
-              <div >{menus[2]}</div>
+              <div className="HomeCliente-menu">{menus[0]}</div>
+              <div className="HomeCliente-menu">{menus[1]}</div>
+              <div className="HomeCliente-menu">{menus[2]}</div>
             </SwipeableViews>
           </Box>
         </Box>

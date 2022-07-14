@@ -11,9 +11,14 @@
 .HomeCliente-content {
 background-color: white;
   width: 100%;
-
+justify-content: space-around;
   border-radius: 3%;
   flex: 0 1 auto;
   margin: auto;
   margin-top: 0.8%;
+}
+.HomeCliente-menu{
+  display: flex;
+  
+  justify-content: space-around;
 }
