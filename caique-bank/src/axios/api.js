@@ -8,5 +8,11 @@ export const busca = async (url) => {
   return resposta.data;
 };
 export const adicionar = async (url, novaConta) => {
-  const adicao = await api.post(url, novaConta);
+  await api.post(url, novaConta);
 };
+export const atualizar = async (url,alteracoesConta)=>{
+  await api.put(url,alteracoesConta)
+};
+export const excluir = async(url)=>{
+  await api.delete(url)
+}

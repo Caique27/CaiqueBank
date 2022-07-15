@@ -12,12 +12,38 @@ class ContaController{
         conta.save((err) => {
     
           if(err) {
-            res.status(500).send({message: `${err.message} - falha ao cadastrar livro.`})
+            res.status(500).send({message: `${err.message} - falha ao criar conta.`})
           } else {
             res.status(201).send(conta.toJSON())
           }
         })
       }
+
+      static atualizarConta = (req,res)=>{
+        const id = req.params.id
+      contas.findByIdAndUpdate(id,{$set:req.body},(err)=>{
+        if(!err){
+          res.status(200).send({message:"Conta atualizada com sucesso"})
+        }else{
+          res.status(500).send({message:err.message})
+        }
+      })
+      }
+
+      static excluirConta = (req,res)=>{
+        
+          const id = req.params.id
+          contas.findByIdAndDelete(id,(err)=>{
+            if(!err){
+              res.status(200).send({message:"Conta removida com sucesso"})
+            }else{
+              res.status(500).send({message:err.message})
+            }
+            
+          })
+        
+      }
+
 }
 
 export default ContaController

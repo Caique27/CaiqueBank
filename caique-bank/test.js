@@ -1,5 +1,7 @@
 import {busca} from"./src/axios/api.js"
 import {adicionar} from"./src/axios/api.js"
+import {atualizar} from"./src/axios/api.js"
+import {excluir} from"./src/axios/api.js"
 
 async function testeApi(){
     var info = await busca("/contas")
@@ -18,20 +20,18 @@ async function testePost(){
       }
     await adicionar("/contas",conta)
 }
-async function setNumeroConta() {
-    
-    var contas = await busca("/contas");
-    var numeros = [];
-    for (var conta in contas) {
-      numeros.push(contas[conta]._numeroConta);
-    }
+async function testDelete(id){
+  await excluir(`/contas/${id}`)
+}
 
-    var num = Math.floor(Math.random() * 9999) + 1;
-
-    if (numeros.includes(num) == false) {
-      console.log(num);
-    }
-
+async function testUpdate(id,alteracoesConta){
+  await atualizar(`/contas/${id}`,alteracoesConta)
+}
+const id = "62d07157404842c2c610eac9"
+const alteracoes = {
+_numeroConta : '6789',
+_saldo:6700,
+_nomeCliente:"Marcos"
 
 }
-setNumeroConta()
+testUpdate(id,alteracoes)
