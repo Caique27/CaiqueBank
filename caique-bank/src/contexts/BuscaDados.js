@@ -1,5 +1,5 @@
 import React from "react";
-import { busca } from "../api/api.js";
+import { busca } from "../axios/api.js";
 
 async function dadosConta(numConta){
   var contas = await busca("/contas");

@@ -10,7 +10,7 @@ import {
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import "./ConfirmarDados.css";
 function ConfirmarDados(props) {
-  const [buttonStatus, setButtonStatus] = useState("waiting");
+ 
   const [mostrarSenha, setMostrarSenha] = useState(false);
 
   const handleClickShowPassword = () => {
@@ -88,7 +88,7 @@ function ConfirmarDados(props) {
           helperText="Gênero"
           value={props.dados.genero}
           focused
-          color="primary"
+          
           size="small"
           color="fifth"
           sx={{ width: "140%" }}
@@ -142,7 +142,7 @@ function ConfirmarDados(props) {
       </div>
       <div className="ConfirmarDados-buttons">
         <BackButton aoClicar={props.voltarPagina} />
-        <LoginButton texto="Finalizar >" status={buttonStatus} size="small" />
+        <LoginButton texto="Finalizar >" status={props.status} size="small" />
       </div>
     </form>
   );

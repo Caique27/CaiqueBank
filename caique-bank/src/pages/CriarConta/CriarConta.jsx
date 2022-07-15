@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./CriarConta.css";
 import Image from "../../assets/img/Logo.png";
-import { Typography, Box, Tabs, Tab } from "@mui/material";
+import { Typography, Box, Tabs, Tab,Alert,Snackbar } from "@mui/material";
 import Stepper from "../../components/Stepper/Stepper.jsx";
 import SwipeableViews from "react-swipeable-views";
 import DadosPessoais from "../../components/Cadastro/DadosPessoais.jsx";
@@ -9,16 +9,24 @@ import DadosLogin from "../../components/Cadastro/DadosLogin.jsx";
 import ConfirmarDados from "../../components/Cadastro/ConfirmarDados.jsx";
 import Feedback from "../../components/Cadastro/Feedback.jsx";
 import { useTheme } from "@mui/material/styles";
-import { adicionar, busca } from "../../api/api.js";
+import { adicionar, busca } from "../../axios/api.js";
 function CriarConta() {
   const theme = useTheme();
   const [etapaAtual, setEtapaAtual] = useState(0);
   const [dadosColetados, setDados] = useState({});
+  const [buttonStatus,setButtonStatus] = useState("waiting")
   const [numeroFeedback, setNumeroFeedback] = useState();
+
+  const [open,setOpen]= useState(false)
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const componenteConfirmacao = (
     <ConfirmarDados
       voltarPagina={anterior}
       registrarConta={registrarConta}
+      status={buttonStatus}
       dados={dadosColetados}
       key={2}
     />
@@ -55,17 +63,20 @@ function CriarConta() {
     }
   }
   async function setNumeroConta() {
-    var contas = await busca("/contas");
-    var numeros = [];
-    for (var conta in contas) {
-      numeros.push(contas[conta]._numeroConta);
-    }
+    
+        var contas = await busca("/contas");
+        var numeros = [];
+        for (var conta in contas) {
+          numeros.push(contas[conta]._numeroConta);
+        }
 
-    var num = Math.floor(Math.random() * 9999) + 1;
+        var num = Math.floor(Math.random() * 9999) + 1;
 
-    if (numeros.includes(num) == false) {
-      return num;
-    }
+        if (numeros.includes(num) == false) {
+          return num;
+        }
+    
+    
   }
 
   async function formatarConta() {
@@ -82,11 +93,21 @@ function CriarConta() {
 
   async function registrarConta() {
     //   await adicionar('/contas',novaConta)
-    const contaFormatada = await formatarConta();
-    setNumeroFeedback(contaFormatada._numeroConta);
-    proximo();
+    setButtonStatus("loading")
+    try{
+      const contaFormatada = await formatarConta();
+      setNumeroFeedback(contaFormatada._numeroConta);
+      proximo();
 
-    await adicionar("/contas", contaFormatada);
+      await adicionar("/contas", contaFormatada);
+    }catch{
+      console.log('erro')
+      setOpen(true)
+      setTimeout(() => {
+        setButtonStatus("waiting")
+      }, 2500);
+    }
+    
   }
   return (
     <section className="CriarConta-page">
@@ -118,6 +139,13 @@ function CriarConta() {
         >
           {pages}
         </SwipeableViews>
+        <Snackbar open={open} autoHideDuration={3000} onClose={handleClose} anchorOrigin={{vertical: 'bottom',
+          horizontal: 'center', }}
+>
+        <Alert variant="filled" severity="error" sx={{ width: '100%' }}>
+          Falha ao criar conta. Tente novamente mais tarde.
+        </Alert>
+      </Snackbar>
       </div>
     </section>
   );

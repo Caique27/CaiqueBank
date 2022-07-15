@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { busca } from "../api/api.js";
+import { busca } from "../axios/api.js";
 // ----------Cliente---------------
 async function verificarConta(login, senha, agencia) {
   var contas = await busca("/contas");
