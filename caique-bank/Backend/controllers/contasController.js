@@ -6,6 +6,18 @@ class ContaController{
             res.status(200).json(contas)
         })
     }
+
+    static listarContaPorId = (req,res)=>{
+      const id = req.params.id
+      contas.findById(id,(err,contas)=>{
+        if(err){
+          res.status(400).send({message:`${err.message} - conta não localizada`})
+        }else{
+          res.status(200).json(contas)
+        }
+      })
+    }
+
     static cadastrarConta = (req, res) => {
         let conta = new contas(req.body);
     
