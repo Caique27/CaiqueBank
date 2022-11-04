@@ -33,6 +33,7 @@ class ContaController{
 
       static atualizarConta = (req,res)=>{
         const id = req.params.id
+        console.log(req.body)
       contas.findByIdAndUpdate(id,{$set:req.body},(err)=>{
         if(!err){
           res.status(200).send({message:"Conta atualizada com sucesso"})
