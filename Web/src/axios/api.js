@@ -17,3 +17,8 @@ export const atualizar = async (url, alteracoesConta) => {
 export const excluir = async (url) => {
 	await api.delete(url);
 };
+export const autenticar = async (url, dados) => {
+	const resposta = await api.put(url, dados);
+
+	return resposta.data;
+};
