@@ -21,16 +21,40 @@ class ContaController {
 	};
 
 	static cadastrarConta = (req, res) => {
-		let conta = new contas(req.body);
-
-		conta.save((err) => {
+		contas.find((err, contaslist) => {
+			var listaContas;
 			if (err) {
 				res.status(500).send({
 					message: `${err.message} - falha ao criar conta.`,
 				});
+				return;
 			} else {
-				res.status(201).send(conta.toJSON());
+				listaContas = contaslist;
 			}
+			var numeros = [];
+			for (var c in listaContas) {
+				numeros.push(listaContas[c]._numeroConta);
+			}
+
+			var num = Math.floor(Math.random() * 9999) + 1;
+			while (numeros.includes(num)) {
+				num = Math.floor(Math.random() * 9999) + 1;
+			}
+
+			let novaConta = new contas({ _numeroConta: num, ...req.body });
+
+			novaConta.save((err) => {
+				if (err) {
+					res.status(500).send({
+						message: `${err.message} - falha ao criar conta.`,
+					});
+				} else {
+					res.status(200).send({
+						message: "Conta criada com sucesso",
+						info: num,
+					});
+				}
+			});
 		});
 	};
 
