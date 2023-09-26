@@ -7,33 +7,30 @@ import CriarConta from "./pages/CriarConta/CriarConta.jsx";
 import Pagina404 from "./pages/Pagina404/Pagina404.jsx";
 import HomeCliente from "./pages/HomeCliente/HomeCliente.jsx";
 
-import HomeGerente from "./pages/HomeGerente/HomeGerente.jsx";
 import theme from "./assets/themes/theme.js";
 function App() {
-  return (
-    <ThemeProvider theme={theme}>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Login />
-          </Route>
+	return (
+		<ThemeProvider theme={theme}>
+			<Router>
+				<Switch>
+					<Route exact path="/">
+						<Login />
+					</Route>
 
-          <Route path="/cliente/:conta">
-            <HomeCliente />
-          </Route>
-          <Route path="/gerente/:login">
-            <HomeGerente />
-          </Route>
-          <Route path="/criarConta">
-            <CriarConta />
-          </Route>
-          <Route>
-            <Pagina404 />
-          </Route>
-        </Switch>
-      </Router>
-    </ThemeProvider>
-  );
+					<Route path="/cliente/:conta">
+						<HomeCliente />
+					</Route>
+
+					<Route path="/criarConta">
+						<CriarConta />
+					</Route>
+					<Route>
+						<Pagina404 />
+					</Route>
+				</Switch>
+			</Router>
+		</ThemeProvider>
+	);
 }
 
 export default App;
