@@ -9,14 +9,33 @@ class ContaController {
 
 	static listarContaPorId = (req, res) => {
 		const id = req.params.id;
-		contas.findById(id, (err, contas) => {
+		contas.findById(id, (err, conta) => {
 			if (err) {
 				res.status(400).send({
-					message: `${err.message} - conta não localizada`,
+					message: `Conta não existe`,
 				});
 			} else {
-				res.status(200).json(contas);
+				res.status(200).json(conta);
 			}
+		});
+	};
+
+	static buscaID = (req, res) => {
+		const conta = req.params.conta;
+		contas.find((err, contaslist) => {
+			for (var c in contaslist) {
+				if (contaslist[c]._numeroConta == conta) {
+					res.status(200).send({ id: contaslist[c]._id });
+
+					return;
+				}
+				if (err) {
+					res.status(500).send({ err: err });
+					return;
+				}
+			}
+			res.status(500).send({ erro: "conta não existe" });
+			return;
 		});
 	};
 

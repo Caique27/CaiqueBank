@@ -6,6 +6,7 @@ const router = express.Router();
 router
 	.get("/contas", ContaController.listarContas)
 	.get("/contas/:id", ContaController.listarContaPorId)
+	.get("/buscaId/:conta", ContaController.buscaID)
 	.get("/tempo", TempoController.dataAtual)
 	.post("/contas", ContaController.cadastrarConta)
 	.put("/contas/:id", ContaController.atualizarConta)
