@@ -6,7 +6,7 @@ import Login from "./pages/Login/Login.jsx";
 import CriarConta from "./pages/CriarConta/CriarConta.jsx";
 import Pagina404 from "./pages/Pagina404/Pagina404.jsx";
 import HomeCliente from "./pages/HomeCliente/HomeCliente.jsx";
-
+import "./fonts.css";
 import theme from "./assets/themes/theme.js";
 function App() {
 	return (
